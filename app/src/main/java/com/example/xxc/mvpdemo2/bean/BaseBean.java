@@ -1,11 +1,13 @@
-package com.example.xxc.mvpdemo2.base;
+package com.example.xxc.mvpdemo2.bean;
 
-public class BaseModel<T> implements Serializable {
+import java.io.Serializable;
+
+public class BaseBean<T> implements Serializable {
     private String reason;
     private int code;
     private T result;
 
-    public BaseModel(String reason, int code) {
+    public BaseBean(String reason, int code) {
         this.reason = reason;
         this.code = code;
     }

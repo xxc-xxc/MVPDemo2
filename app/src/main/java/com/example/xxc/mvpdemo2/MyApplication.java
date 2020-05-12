@@ -3,11 +3,10 @@ package com.example.xxc.mvpdemo2;
 import android.app.Application;
 import android.content.Context;
 
-import java.math.MathContext;
-
 public class MyApplication extends Application {
 
-    private static Context mContext;
+    private Context mContext;
+    private static MyApplication application;
 
     @Override
     public void onCreate() {
@@ -15,7 +14,15 @@ public class MyApplication extends Application {
         mContext = this;
     }
 
-    public static Context getContext() {
-        return mContext;
+    public static Application getApplication() {
+        if (application == null) {
+            synchronized (MyApplication.class) {
+                if (application == null) {
+                    application = new MyApplication();
+                }
+            }
+        }
+
+        return application;
     }
 }

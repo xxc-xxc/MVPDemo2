@@ -1,6 +1,6 @@
 package com.example.xxc.mvpdemo2.api;
 
-import com.example.xxc.mvpdemo2.base.BaseModel;
+import com.example.xxc.mvpdemo2.bean.BaseBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -11,6 +11,6 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("/api/login/")
-    Observable<BaseModel<Object>> login(@Field("username") String username, @Field("password") String password);
+    Observable<BaseBean<Object>> login(@Field("username") String username, @Field("password") String password);
     
 }
