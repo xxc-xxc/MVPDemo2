@@ -2,6 +2,7 @@ package com.example.xxc.mvpdemo2.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -47,6 +48,19 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
             mPresenter.detachView();
         }
     }
+
+    /**
+     * 设置屏幕横竖屏切换
+     *
+     * @param screenRotate true  竖屏     false  横屏
+     */
+    /*private void setScreenRoate(Boolean screenRotate) {
+        if (screenRotate) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//设置竖屏模式
+        } else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+    }*/
 
     /**
      * 页面跳转
@@ -170,6 +184,20 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     public View[] filterViewByIds() {
         return null;
     }
+
+    /*实现案例===============================================================================================*/
+    /*
+    @Override
+    public int[] hideSoftByEditViewIds() {
+        int[] ids = {R.id.et_company_name, R.id.et_address};
+        return ids;
+    }
+    @Override
+    public View[] filterViewByIds() {
+        View[] views = {mEtCompanyName, mEtAddress};
+        return views;
+    }
+    */
 
     protected void setStatusBar() {
         StatusBarUtil.setTranslucent(this);
